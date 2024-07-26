@@ -1,0 +1,16 @@
+.main{
+    background:url('../Assets/hero-banner.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+}
+.main::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left:0px;
+    background-color: #0f172b98;
+}

@@ -1,0 +1,92 @@
+[
+  {
+      "id": 1,
+      "name": "Margherita Pizza",
+      "description": "Classic Margherita with fresh tomatoes, mozzarella cheese, and basil.",
+      "price": 8.99,
+      "category": "Main Course",
+      "image": "margherita_pizza.jpg",
+      "rating": 4.5
+  },
+  {
+      "id": 2,
+      "name": "Caesar Salad",
+      "description": "Fresh romaine lettuce, parmesan cheese, croutons, and Caesar dressing.",
+      "price": 6.99,
+      "category": "Starter",
+      "image": "caesar_salad.jpg",
+      "rating": 4.2
+  },
+  {
+      "id": 3,
+      "name": "Tiramisu",
+      "description": "Traditional Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cheese.",
+      "price": 5.99,
+      "category": "Dessert",
+      "image": "tiramisu.jpg",
+      "rating": 4.7
+  },
+  {
+      "id": 4,
+      "name": "Spaghetti Carbonara  ",
+      "description": "Classic Roman pasta dish with eggs, cheese, pancetta, and pepper.",
+      "price": 12.99,
+      "category": "Main Course",
+      "image": "spaghetti_carbonara.jpg",
+      "rating": 4.6
+  },
+  {
+      "id": 5,
+      "name": "Garlic Bread",
+      "description": "Toasted bread with garlic, butter, and parsley.",
+      "price": 4.99,
+      "category": "Starter",
+      "image": "garlic_bread.jpg",
+      "rating": 4.1
+  },
+  {
+      "id": 6,
+      "name": "Panna Cotta",
+      "description": "Creamy Italian dessert topped with a berry sauce.",
+      "price": 6.99,
+      "category": "Dessert",
+      "image": "panna_cotta.jpg",
+      "rating": 4.5
+  },
+  {
+      "id": 7,
+      "name": "Grilled Chicken",
+      "description": "Juicy grilled chicken breast served with a side of vegetables.",
+      "price": 14.99,
+      "category": "Main Course",
+      "image": "grilled_chicken.jpg",
+      "rating": 4.4
+  },
+  {
+      "id": 8,
+      "name": "Bruschetta",
+      "description": "Toasted bread topped with fresh tomatoes, garlic, basil, and olive oil.",
+      "price": 5.99,
+      "category": "Starter",
+      "image": "bruschetta.jpg",
+      "rating": 4.3
+  },
+  {
+      "id": 9,
+      "name": "Chocolate Lava Cake",
+      "description": "Warm chocolate cake with a gooey molten center.",
+      "price": 7.99,
+      "category": "Dessert",
+      "image": "chocolate_lava_cake.jpg",
+      "rating": 4.8
+  },
+  {
+      "id": 10,
+      "name": "Minestrone Soup",
+      "description": "Hearty Italian vegetable soup with pasta and beans.",
+      "price": 5.99,
+      "category": "Starter",
+      "image": "minestrone_soup.jpg",
+      "rating": 4.2
+  }
+]
