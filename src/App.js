@@ -12,8 +12,10 @@ import TablePage from './Pages/TablePage';
 import { animateScroll } from 'react-scroll';
 import HomePage from './Pages/HomePage';
 import RoomPage from './Pages/RoomPage';
-import CheckOutPage from './Components/CheckOutPage';
-import CardPayment from './Components/CardPayment';
+import CheckOutPage from './Pages/CheckOutPage';
+import CardPayment from './Components/Checkout/CardPayment';
+import HotelPaymentPage from './Pages/HotelPaymentPage';
+import OrderPlaced from './Pages/OrderPlaced';
 
 
 function App() {
@@ -31,7 +33,8 @@ function App() {
           <Route path='/roomPage' element={<RoomPage />}/>
           <Route path='/checkOutPage' element={<CheckOutPage />}/>
           <Route path='/cardPayment' element={<CardPayment />}/>
-
+          <Route path='/hotelPaymentPage' element={<HotelPaymentPage />}/>
+          <Route path='/orderPlaced' element={<OrderPlaced />}/>
         </Routes>
         <Foot />
       </div>

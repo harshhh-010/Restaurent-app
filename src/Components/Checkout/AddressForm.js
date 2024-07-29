@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector} from "react-redux";
-import { setOrderAdd } from "../redux/Action/foodCartAction";
+import { useDispatch, useSelector } from "react-redux";
+import { setOrderAdd } from "../../redux/Action/foodCartAction";
 import { useNavigate } from "react-router-dom";
-import pinCodeData from "../indoreArea.json";
-import { updateQuantity } from "../redux/Action/foodCartAction";
 import SelectPayment from "./SelectPayment";
-
-const CheckOutPage = () => {
+import FoodCheckoutProduct from "./FoodCheckoutProduct";
+const AddressForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const cartItems = useSelector(state => state.cart.items);
-  const totalValue = useSelector(state => state.cart.totalValue);
 
-  const handleQuantityChange = (productId, quantity) => {
-    dispatch(updateQuantity(productId, quantity));
-  };
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const [deliveryData, setDeliveryData] = useState({
     firstName: "",
@@ -37,13 +31,12 @@ const CheckOutPage = () => {
   const handleAddSubmit = (e) => {
     e.preventDefault();
     dispatch(setOrderAdd({ ...deliveryData }));
+    setIsFormSubmitted(true);
   };
-
   return (
-    <>
-      <div className="lg:grid grid-cols-2 mb-20 pt-36">
-        
-        <div className="right bg-grey-900 md:mx-10 max-sm:mx-3 max-sm:p-5 rounded-lg shadow-2xl h-max">
+    <div className="lg:grid grid-cols-2 mb-20 pt-36">
+      <div className="right bg-grey-900 md:mx-10 max-sm:mx-3 max-sm:p-5 rounded-lg shadow-2xl h-max">
+        {!isFormSubmitted && (
           <form className="md:p-20" onSubmit={handleAddSubmit}>
             <div className="sm:grid grid-cols-2 gap-2">
               <div className="mb-3">
@@ -77,6 +70,7 @@ const CheckOutPage = () => {
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="0987654321"
                   onChange={handleChange}
+                  pattern={/^\d{9}$/}
                   required
                 />
               </div>
@@ -96,6 +90,8 @@ const CheckOutPage = () => {
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="123456"
                   onChange={handleChange}
+                  minLength={10}
+                  maxLength={10}
                   required
                 />
               </div>
@@ -114,12 +110,10 @@ const CheckOutPage = () => {
                   onChange={handleChange}
                   minLength="3"
                   maxLength="20"
-
                   required
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-2 gap-2 ">
               <div className="mb-3">
                 <label
@@ -176,46 +170,57 @@ const CheckOutPage = () => {
                 </a>
               </label>
             </div>
-          </form>
-        </div>
-
-        <div className="overflow-x-auto mx-10">
-          <table className="min-w-full bg-white border border-gray-200">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border-b text-center">Name</th>
-                <th className="px-4 py-2 border-b text-center">Quantity</th>
-                <th className="px-4 py-2 border-b text-center">Total Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map(item => (
-                <tr key={item.id} className="border-t">
-                  <td className="px-4 py-2 w-2/5 text-center">
-                    <h4 className="text-lg">{item.name}</h4>
-                  </td>
-                  <td className="px-4 py-2 w-1/5 text-center">
-                    <p>{item.quantity}</p>
-                  </td>
-                  <td className="px-4 py-2 w-1/5 text-center">
-                    <p>${(item.price * item.quantity).toFixed(2)}</p>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <div className="flex justify-end mt-4">
-            <div className=" mr-5">
-              <h4 className="text-lg font-semibold ">Total Payable: ${totalValue.toFixed(2)}</h4>
+            <div className="flex flex-wrap justify-center mt-4">
+              <button
+                type="submit"
+                className="px-8 py-3 bg-peel-orange-custom rounded-full text-black mx-auto font-bold"
+              >
+                PLACE ORDER
+              </button>
             </div>
-          </div>
-          < SelectPayment />
+          </form>
+        )}
+        {isFormSubmitted && (
+        <div className="p-20">
+          <h1 className="text-2xl font-semibold mb-5">Billing Details</h1>
+          <p className="mb-2">
+            {" "}
+            <span className="font-semibold">Billing Name :</span>{" "}
+            {deliveryData.firstName}
+          </p>
+          <p className="mb-2">
+            {" "}
+            <span className="font-semibold">Contact NO.:</span>{" "}
+            {deliveryData.contact}
+          </p>
+          <p className="mb-2">
+            {" "}
+            <span className="font-semibold">Billing Address:</span>{" "}
+            {deliveryData.houseNumber}, {deliveryData.area},{" "}
+            <span className="font-medium">Indore, {deliveryData.pinCode}</span>.{" "}
+          </p>
+          <p className="mb-2">
+            {" "}
+            <span className="font-semibold">Pin-Code:</span>{" "}
+            {deliveryData.pinCode}
+          </p>
+          <p className="mb-2">
+            {" "}
+            <span className="font-semibold">City:</span> Indore
+          </p>
         </div>
-
+        )}
       </div>
-    </>
+      <div className="overflow-x-auto mx-10">
+        {isFormSubmitted && (
+          <>
+            <FoodCheckoutProduct />
+            <SelectPayment />
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 
-export default CheckOutPage;
+export default AddressForm;

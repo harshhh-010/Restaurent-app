@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
 import CardPayment from './CardPayment';
+import UpiPayment from './UpiPayment';
+import COD from './COD'
 
 
 
@@ -22,7 +23,7 @@ const SelectPayment = () => {
 
   return (
     <div>
-      <div className=" grid grid-cols-3 gap-5 mt-14 mb-10">
+      <div className=" grid grid-cols-3 gap-5  mb-10">
         <div className={`card w-100% p-3 rounded-md ${selectedPayment === 'card' ? 'bg-peel-orange-custom' : 'bg-gray-300'}`} onClick={handleCardClick}>
           <h1 className='font-bold'>PAY BY CARD</h1>
           <p className='text-sm'>Credit / Debit / ATM Card</p>
@@ -38,12 +39,9 @@ const SelectPayment = () => {
       </div>
 			<div className="payment-container mt-5">
         {selectedPayment === 'card' && <CardPayment />}
-        {/* {selectedPayment === 'upi' && <UPIPayment />} */}
-        {/* {selectedPayment === 'cod' && <CODPayment />} */}
+        {selectedPayment === 'upi' && <UpiPayment />}
+        {selectedPayment === 'cod' && <COD />}
       </div>
-			<div className='flex flex-wrap justify-center mt-4'>
-				<button type="submit" className="px-8 py-3 bg-peel-orange-custom rounded-full text-black mx-auto font-semibold"> Place Order </button>
-			</div>
 
 		</div>
   )

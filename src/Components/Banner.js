@@ -16,7 +16,7 @@ const Banner = () => {
                   mollitia aliquam reprehenderit? Magnam, odit est voluptates perferendis
                   aperiam nisi unde!</p>
           </div>
-          <div className='right-img'>
+          <div className='right-img max-sm:hidden'>
             <img src= {pizza} alt="" className='h-auto w-[450px] ml-36 animate-spin-slow'/>
           </div>
       </div>

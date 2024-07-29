@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../redux/Action/foodCartAction";
 import { useNavigate } from "react-router-dom";
+import HotelPaymentPage from "./HotelPaymentPage";
 import "./RoomPage.css";
 import Single from '../Assets/Single-bed-room.jpg';
 import Delux from '../Assets/super-delux.jpeg';
@@ -90,7 +91,7 @@ const RoomPage = () => {
     e.preventDefault();
     const totalPrice = calculatePrice();
     dispatch(setUserInfo({ ...formData, totalPrice }));
-    navigate("/");
+    navigate("/hotelPaymentPage",{ state: { formData } });
   };
   return (
     <>
@@ -153,7 +154,7 @@ const RoomPage = () => {
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="Enter Your First Name Here"
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
               <div className="mb-3">
@@ -167,7 +168,7 @@ const RoomPage = () => {
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="Enter Your Last Name Here"
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
             </div>
@@ -182,7 +183,7 @@ const RoomPage = () => {
                   name="roomType"
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   onChange={handleChange}
-                  required
+                  
                 >
                   <option value="">Select Room Type</option>
                   <option value="Single Room">Single Room - $100</option>
@@ -201,7 +202,7 @@ const RoomPage = () => {
                   name="roomPreference"
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   onChange={handleChange}
-                  required
+                  
                 >
                   <option value="">Select Room Preference</option>
                   <option value="Non-Smoking">Non-Smoking</option>
@@ -221,7 +222,7 @@ const RoomPage = () => {
                 className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                 placeholder="abcd@xyz.com"
                 onChange={handleChange}
-                required
+                
               />
             </div>
 
@@ -237,7 +238,7 @@ const RoomPage = () => {
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   placeholder="0987654321"
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
               <div className="mb-3">
@@ -252,7 +253,7 @@ const RoomPage = () => {
                   max="3"
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
             </div>
@@ -270,7 +271,7 @@ const RoomPage = () => {
                   max={maxDate}
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
               <div className="mb-3">
@@ -285,7 +286,7 @@ const RoomPage = () => {
                   max={maxDate}
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
             </div>
@@ -303,7 +304,7 @@ const RoomPage = () => {
                   max="3"
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
 
@@ -342,7 +343,7 @@ const RoomPage = () => {
             </div>
 
             <button
-              type="submit"
+              type="submit" onSubmit={handleSubmit}
               className="px-8 py-3 bg-peel-orange-custom rounded-full text-black mx-auto font-semibold"
             >
               Submit
