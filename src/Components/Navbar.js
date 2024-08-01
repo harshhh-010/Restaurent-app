@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from '../Assets/logo.svg';
+import logo from '../Assets/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from "react-redux";
@@ -22,7 +22,7 @@ const Navbar = () => {
       <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed z-10 w-[100%]">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src={logo} className="h-12" alt="Logo"/>
+            <img src={logo} className="h-16" alt="Logo"/>
           </a>
           <button
             data-collapse-toggle="navbar-default"
@@ -93,9 +93,9 @@ const Navbar = () => {
           <div className="hidden w-full md:block md:w-auto relative" id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <NavLink to="/cart">
-                <FontAwesomeIcon className="cart-icon text-white text-3xl" icon={faCartShopping}/>
+                <FontAwesomeIcon className="cart-icon text-white text-xl" icon={faCartShopping}/>
                 {totalQuantity > 0 && 
-                  <div className="absolute inline-flex items-center justify-center w-5 h-5 p-2 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
+                  <div className="absolute inline-flex items-center justify-center w-2 h-2 p-2 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-2 dark:border-gray-900">
                     {totalQuantity}
                   </div>
                 }
