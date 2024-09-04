@@ -26,7 +26,7 @@ const HotelPaymentPage = () => {
                 <td className="px-6 py-4">{formData.roomType} ({formData.roomPreference})</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 font-semibold">Email Address</td>
+                <td className="px-6 py-4 font-semibold">Email Addresss</td>
                 <td className="px-6 py-4">{formData.email}</td>
               </tr>
               <tr className="bg-gray-200">
